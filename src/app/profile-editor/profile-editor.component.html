@@ -1,16 +1,47 @@
-<form [formGroup]="profileForm">
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
   <div style="margin-bottom: 4px;">
     <label>
       First Name:
-      <input formControlName="firstName">
+      <input formControlName="firstName" required>
     </label>
   </div>
 
-  <div>
+  <div style="margin-bottom: 4px;">
     <label>
       Last Name:
       <input formControlName="lastName">
     </label>
+  </div>
+
+  <div formGroupName="address">
+    <div style="margin-bottom: 4px;">
+      <label>
+        Street:
+        <input formControlName="street">
+      </label>
+    </div>
+    <div style="margin-bottom: 4px;">
+      <label>
+        City:
+        <input formControlName="city">
+      </label>
+    </div>
+    <div style="margin-bottom: 4px;">
+      <label>
+        State:
+        <input formControlName="state">
+      </label>
+    </div>
+    <div style="margin-bottom: 4px;">
+      <label>
+        Zip Code:
+        <input formControlName="zip">
+      </label>
+    </div>
+  </div>
+
+  <div>
+    <button type="submit" [disabled]="!profileForm.valid">送出</button>
   </div>
 </form>
 
