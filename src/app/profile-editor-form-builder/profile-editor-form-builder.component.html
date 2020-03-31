@@ -40,6 +40,23 @@
     </div>
   </div>
 
+  <div formArrayName="aliases">
+    <p>
+      <button type="button" (click)="addAlias()">Add Alias</button>
+      <button type="button" (click)="removeAlias()">Remove Alias</button>
+    </p>
+
+    <div
+      *ngFor="let alias of aliases.controls; let i = index;"
+      style="margin-bottom: 4px;"
+    >
+      <label>
+        Alias:
+        <input [formControlName]="i">
+      </label>
+    </div>
+  </div>
+
   <div>
     <button type="submit" [disabled]="!profileForm.valid">送出</button>
   </div>

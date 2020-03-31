@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-editor-form-builder',
@@ -16,13 +16,26 @@ export class ProfileEditorFormBuilderComponent implements OnInit {
       state: [''],
       zip: [''],
     }),
+    aliases: this.fb.array([this.fb.control('')]),
   });
 
   constructor(
     private fb: FormBuilder,
   ) { }
 
+  get aliases() {
+    return this.profileForm.get('aliases') as FormArray;
+  }
+
   ngOnInit(): void {
+  }
+
+  addAlias() {
+    this.aliases.push(this.fb.control(''));
+  }
+
+  removeAlias() {
+    this.aliases.removeAt(this.aliases.length - 1);
   }
 
   onSubmit() {
