@@ -22,6 +22,12 @@
         Name cannot include Bad.
       </div>
     </div>
+    <div
+      *ngIf="profileForm.errors?.identityRevealed && (profileForm.touched || profileForm.dirty)"
+      style="color: red;"
+    >
+      Name cannot match alter ego
+    </div>
   </div>
 
   <div style="margin-bottom: 4px;">
@@ -29,6 +35,12 @@
       Last Name:
       <input formControlName="lastName">
     </label>
+    <div
+      *ngIf="profileForm.errors?.identityRevealed && (profileForm.touched || profileForm.dirty)"
+      style="color: red;"
+    >
+      Name cannot match alter ego
+    </div>
   </div>
 
   <div formGroupName="address">

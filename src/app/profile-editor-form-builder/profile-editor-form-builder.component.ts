@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
 import { forbiddenValidator } from '../forbidden-validator.directive';
+import { identityRevealedValidator } from '../identity-revealed-validator.directive';
 
 @Component({
   selector: 'app-profile-editor-form-builder',
@@ -23,7 +24,7 @@ export class ProfileEditorFormBuilderComponent implements OnInit {
       zip: [''],
     }),
     aliases: this.fb.array([this.fb.control('')]),
-  });
+  }, { validators: identityRevealedValidator });
 
   constructor(
     private fb: FormBuilder,
