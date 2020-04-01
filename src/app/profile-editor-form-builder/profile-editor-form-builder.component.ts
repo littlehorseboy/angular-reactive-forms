@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
+import { forbiddenNameValidator } from '../forbidden-name.directive';
 
 @Component({
   selector: 'app-profile-editor-form-builder',
@@ -8,7 +9,11 @@ import { FormBuilder, Validators, FormArray } from '@angular/forms';
 })
 export class ProfileEditorFormBuilderComponent implements OnInit {
   profileForm = this.fb.group({
-    firstName: ['', [Validators.required, Validators.minLength(4)]],
+    firstName: ['', [
+      Validators.required,
+      Validators.minLength(3),
+      forbiddenNameValidator(/bob/i),
+    ]],
     lastName: [''],
     address: this.fb.group({
       street: [''],

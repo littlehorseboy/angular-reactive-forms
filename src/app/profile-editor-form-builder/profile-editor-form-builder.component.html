@@ -13,7 +13,10 @@
         First Name is required
       </div>
       <div *ngIf="firstName.errors.minlength">
-        Name must be at least 4 characters long
+        Name must be at least 3 characters long
+      </div>
+      <div *ngIf="firstName.errors.forbiddenName">
+        Name cannot be Bob.
       </div>
     </div>
   </div>
