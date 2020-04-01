@@ -23,6 +23,10 @@ export class ProfileEditorFormBuilderComponent implements OnInit {
     private fb: FormBuilder,
   ) { }
 
+  get firstName() {
+    return this.profileForm.get('firstName');
+  }
+
   get aliases() {
     return this.profileForm.get('aliases') as FormArray;
   }
