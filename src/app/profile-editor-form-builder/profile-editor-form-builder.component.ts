@@ -13,6 +13,7 @@ export class ProfileEditorFormBuilderComponent implements OnInit {
       Validators.required,
       Validators.minLength(3),
       forbiddenNameValidator(/bob/i),
+      Validators.pattern(/^((?!bad).)*$/i),
     ]],
     lastName: [''],
     address: this.fb.group({
