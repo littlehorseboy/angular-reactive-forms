@@ -12,6 +12,9 @@
       <div *ngIf="firstName.errors.required">
         First Name is required
       </div>
+      <div *ngIf="firstName.errors.minlength">
+        Name must be at least 4 characters long
+      </div>
     </div>
   </div>
 

@@ -8,7 +8,7 @@ import { FormBuilder, Validators, FormArray } from '@angular/forms';
 })
 export class ProfileEditorFormBuilderComponent implements OnInit {
   profileForm = this.fb.group({
-    firstName: ['', Validators.required],
+    firstName: ['', [Validators.required, Validators.minLength(4)]],
     lastName: [''],
     address: this.fb.group({
       street: [''],
