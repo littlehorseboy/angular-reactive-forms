@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
-import { forbiddenNameValidator } from '../forbidden-name.directive';
+import { forbiddenValidator } from '../forbidden-validator.directive';
 
 @Component({
   selector: 'app-profile-editor-form-builder',
@@ -12,7 +12,7 @@ export class ProfileEditorFormBuilderComponent implements OnInit {
     firstName: ['', [
       Validators.required,
       Validators.minLength(3),
-      forbiddenNameValidator(/bob/i),
+      forbiddenValidator(/bob/i),
       Validators.pattern(/^((?!bad).)*$/i),
     ]],
     lastName: [''],

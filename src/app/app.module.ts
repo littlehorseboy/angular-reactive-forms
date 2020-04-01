@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { NameEditorComponent } from './name-editor/name-editor.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 import { ProfileEditorFormBuilderComponent } from './profile-editor-form-builder/profile-editor-form-builder.component';
-import { ForbiddenNameDirective } from './forbidden-name.directive';
+import { ForbiddenValidatorDirective } from './forbidden-validator.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { ForbiddenNameDirective } from './forbidden-name.directive';
     NameEditorComponent,
     ProfileEditorComponent,
     ProfileEditorFormBuilderComponent,
-    ForbiddenNameDirective
+    ForbiddenValidatorDirective
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,7 @@
       <div *ngIf="firstName.errors.minlength">
         Name must be at least 3 characters long
       </div>
-      <div *ngIf="firstName.errors.forbiddenName">
+      <div *ngIf="firstName.errors.forbidden">
         Name cannot be Bob.
       </div>
       <div *ngIf="firstName.errors.pattern">

@@ -1,17 +1,17 @@
 import { Directive } from '@angular/core';
 import { ValidatorFn, AbstractControl } from '@angular/forms';
 
-export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
+export function forbiddenValidator(nameRe: RegExp): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
     const forbidden = nameRe.test(control.value);
-    return forbidden ? { forbiddenName: { value: control.value } } : null;
+    return forbidden ? { forbidden: { value: control.value } } : null;
   };
 }
 
 @Directive({
-  selector: '[appForbiddenName]'
+  selector: '[appForbiddenValidator]'
 })
-export class ForbiddenNameDirective {
+export class ForbiddenValidatorDirective {
 
   constructor() { }
 
