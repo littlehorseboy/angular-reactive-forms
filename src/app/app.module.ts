@@ -9,6 +9,7 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
 import { ProfileEditorFormBuilderComponent } from './profile-editor-form-builder/profile-editor-form-builder.component';
 import { ForbiddenValidatorDirective } from './forbidden-validator.directive';
 import { IdentityRevealedValidatorDirective } from './identity-revealed-validator.directive';
+import { UniqueLastNameValidatorDirective } from './unique-last-name-validator.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { IdentityRevealedValidatorDirective } from './identity-revealed-validato
     ProfileEditorComponent,
     ProfileEditorFormBuilderComponent,
     ForbiddenValidatorDirective,
-    IdentityRevealedValidatorDirective
+    IdentityRevealedValidatorDirective,
+    UniqueLastNameValidatorDirective
   ],
   imports: [
     BrowserModule,

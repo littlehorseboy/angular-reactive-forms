@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
 import { forbiddenValidator } from '../forbidden-validator.directive';
 import { identityRevealedValidator } from '../identity-revealed-validator.directive';
+import { UniqueLastNameValidator } from '../unique-last-name-validator.directive';
 
 @Component({
   selector: 'app-profile-editor-form-builder',
@@ -16,7 +17,10 @@ export class ProfileEditorFormBuilderComponent implements OnInit {
       forbiddenValidator(/bob/i),
       Validators.pattern(/^((?!bad).)*$/i),
     ]],
-    lastName: [''],
+    lastName: ['', {
+      asyncValidators: [this.uniqueLastNameValidator.validate.bind(this.uniqueLastNameValidator)],
+      updateOn: 'blur',
+    }],
     address: this.fb.group({
       street: [''],
       city: [''],
@@ -28,10 +32,15 @@ export class ProfileEditorFormBuilderComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private uniqueLastNameValidator: UniqueLastNameValidator,
   ) { }
 
   get firstName() {
     return this.profileForm.get('firstName');
+  }
+
+  get lastName() {
+    return this.profileForm.get('lastName');
   }
 
   get aliases() {

@@ -35,6 +35,12 @@
       Last Name:
       <input formControlName="lastName">
     </label>
+    <div *ngIf="lastName.pending">Validating...</div>
+    <div *ngIf="lastName.invalid" style="color: red;">
+      <div *ngIf="!lastName.errors?.isUnique">
+        Last Name is already taken
+      </div>
+    </div>
     <div
       *ngIf="profileForm.errors?.identityRevealed && (profileForm.touched || profileForm.dirty)"
       style="color: red;"
